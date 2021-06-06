@@ -1,0 +1,132 @@
+.cover-img{
+  background-image: url("../../../assets/image/img-home/bg-img-thclothing.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  height: 1100px;
+  & .content-header{
+    position: relative;
+    top: 800px;
+    & h1{
+      font-size: 6rem !important;
+      color: #AEAEAF;
+    }
+    & button{
+      width: 200px;
+      font-size: 2rem;
+      color: #AEAEAF;
+      border-bottom: 1px solid #AEAEAF;
+    }
+    & button:hover{
+      color: white;
+      border-bottom-color: white;
+    }
+  }
+}
+.sologan{
+  width: 100%;
+  height: 500px;
+  background-color: #141318;
+  & i{
+    color: #AEAEAF;
+    font-size: 1.5rem;
+  }
+  & p{
+    margin: 150px !important;
+  }
+}
+.colection{
+  height: 70vh;
+  padding: 5% 15%;
+  & .colection-end{
+    & p{
+      margin-left: 75px;
+    }
+    & button{
+      border-bottom: 1px solid black;
+      margin-right: 200px;
+    }
+    & button:hover{
+      opacity: 0.8;
+    }
+  }
+}
+.catalog{
+  height: 85vh;
+  & .catalog-item{
+      position: relative;
+      bottom: 180px;
+    & h3{
+      font-weight: bolder;
+      font-size: 2rem;
+    }
+    & p{
+      font-weight: 500;
+    }
+    & button{
+      width: 150px;
+      height: 50px;
+    }
+    & button:hover{
+      opacity: 0.8;
+    }
+  }
+}
+.about{
+  background-color: #141318;
+  height: 70vh;
+  padding: 5% 10%;
+  & .about-content{
+    & p{
+      font-size: 1.3rem;
+      color: #AEAEAF;
+    }
+  }
+}
+.most-popular{
+  & .most-popular-text{
+    & p{
+      font-size: 1.5rem;
+      margin: 150px 0 0 100px;
+      font-style: italic;
+    }
+    & button{
+      font-size: 1.2rem;
+      border-bottom: 1px solid black;
+    }
+    & button:hover{
+      opacity: 0.8;
+    }
+  }
+}
+.spring-summer{
+  & .spring-summer-content{
+    & img{
+      margin-bottom: 100px;
+    }
+    & .spring-summer-text{
+      width: 300px;
+      margin-bottom: 150px;
+      margin-left: 120px;
+    }
+  }
+}
+
+.subcribe{
+  height: 30vh;
+  & label{
+    font-size: 1.3rem;
+  }
+  & input{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 50px 50px;
+  }
+  & button:hover{
+    opacity: 0.8;
+  }
+}

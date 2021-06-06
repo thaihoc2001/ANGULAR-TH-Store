@@ -1,0 +1,33 @@
+<div class="section d-flex mt-5">
+    <div class="article-left w-50 d-flex">
+      <div class="list-img w-25 d-inline text-center">
+        <img src="{{products.img1}}" width="120" (click)="showImage('img1')" id="img1">
+        <img src="{{products.img2}}" width="120" (click)="showImage('img2')" id="img2">
+        <img src="{{products.img3}}" width="120"  (click)="showImage('img3')" id="img3">
+        <img src="{{products.img4}}" width="120" (click)="showImage('img4')" id="img4">
+        <img src="{{products.img5}}" width="120" (click)="showImage('img5')" id="img5">
+      </div>
+      <div class="text-center w-100">
+        <img src="{{products.img1}}" height="920" id="main-img">
+      </div>
+    </div>
+    <div class="article-right w-50">
+      <h1>{{products.name}}</h1>
+      <p class="mt-4 w-75">{{describe.descripion}}</p>
+      <p>Color: </p>
+      <p>Size: </p>
+      <h2 class="mt-5">${{products.price}}.00</h2>
+      <button class="btn btn-primary w-50 mt-3 ">ADD TO BAG</button>
+      <h2 class="mt-5">Details</h2>
+      <ul class="w-75">
+        <li>{{describe.content1}}</li>
+        <li>{{describe.content2}}</li>
+        <li>{{describe.content3}}</li>
+        <li>{{describe.content4}}</li>
+        <li>{{describe.content5}}</li>
+        <li>{{describe.content6}}</li>
+        <li>{{describe.content7}}</li>
+        <li>{{describe.content8}}</li>
+      </ul>
+    </div>
+</div>
