@@ -23,5 +23,10 @@ export class CommonService {
   getProductDetailByID(id: any): Observable<any>{
     return this.httpClient.get(`http://localhost:3000/products-detail/${id}`);
   }
-
+  Login(): Observable<any>{
+    return this.httpClient.get(`http://localhost:3000/Users`);
+  }
+  register(infoUser: any): Observable<any>{
+    return this.httpClient.post('http://localhost:3000/Users', infoUser);
+  }
 }

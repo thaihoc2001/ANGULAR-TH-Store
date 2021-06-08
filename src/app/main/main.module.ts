@@ -11,6 +11,7 @@ import { ProductWomenComponent } from './product-women/product-women.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { NewsComponent } from './news/news.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
   imports: [
     CommonModule,
     MainRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class MainModule { }
