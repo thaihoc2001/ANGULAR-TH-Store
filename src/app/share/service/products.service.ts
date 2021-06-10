@@ -6,7 +6,7 @@ import {tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class CommonService {
+export class ProductsService {
   constructor(private httpClient: HttpClient) { }
   private httpOptions = {
     headers: new HttpHeaders({
@@ -22,11 +22,5 @@ export class CommonService {
   }
   getProductDetailByID(id: any): Observable<any>{
     return this.httpClient.get(`http://localhost:3000/products-detail/${id}`);
-  }
-  Login(): Observable<any>{
-    return this.httpClient.get(`http://localhost:3000/Users`);
-  }
-  register(infoUser: any): Observable<any>{
-    return this.httpClient.post('http://localhost:3000/Users', infoUser);
   }
 }

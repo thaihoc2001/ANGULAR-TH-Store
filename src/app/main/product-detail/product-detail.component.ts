@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommonService} from '../../share/service/common.service';
+import {ProductsService} from '../../share/service/products.service';
 import { ActivatedRoute } from '@angular/router';
 import {main} from '@angular/compiler-cli/src/main';
 
@@ -10,7 +10,7 @@ import {main} from '@angular/compiler-cli/src/main';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor(private commonService: CommonService, private activatedRoute: ActivatedRoute ) { }
+  constructor(private commonService: ProductsService, private activatedRoute: ActivatedRoute ) { }
   products: any;
   describe: any;
   id: any;
@@ -33,7 +33,6 @@ export class ProductDetailComponent implements OnInit {
       this.describe = res;
     });
   }
-
   showImage(id: any): void {
     const img1 = document.getElementById(id);
     const mainimg = document.getElementById('main-img');
@@ -42,4 +41,5 @@ export class ProductDetailComponent implements OnInit {
     // @ts-ignore
     mainimg.setAttribute('src', getattr);
   }
+
 }

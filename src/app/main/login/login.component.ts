@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from '../../share/service/common.service';
+import { UserService } from '../../share/service/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,14 +14,14 @@ export class LoginComponent implements OnInit {
   model: any = {};
   Username: any;
 
-  constructor(private commonService: CommonService,  private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void{
-    this.commonService.Login().subscribe(user => {
+    this.userService.Login().subscribe(user => {
       console.log(user);
       this.User = user || [];
     });

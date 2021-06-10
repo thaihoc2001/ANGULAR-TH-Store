@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommonService} from '../../share/service/common.service';
+import {ProductsService} from '../../share/service/products.service';
 
 @Component({
   selector: 'app-product-women',
@@ -8,7 +8,7 @@ import {CommonService} from '../../share/service/common.service';
 })
 export class ProductWomenComponent implements OnInit {
 
-  constructor( private commonService: CommonService ) { }
+  constructor( private commonService: ProductsService ) { }
   public product: Array<any> = [];
   productmen: any;
   page = 1;
