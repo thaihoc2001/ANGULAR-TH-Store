@@ -17,7 +17,7 @@
       <p>Color: </p>
       <p>Size: </p>
       <h2 class="mt-5">${{products.price}}.00</h2>
-      <button class="btn btn-primary w-50 mt-3 ">ADD TO BAG</button>
+      <button class="btn btn-primary w-50 mt-3 " (click)="addCart(products)">ADD TO BAG</button>
       <h2 class="mt-5">Details</h2>
       <ul class="w-75">
         <li>{{describe.content1}}</li>

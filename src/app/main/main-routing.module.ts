@@ -10,6 +10,7 @@ import {ProductMenComponent} from './product-men/product-men.component';
 import {ProductWomenComponent} from './product-women/product-women.component';
 import {NewsComponent} from './news/news.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
+import {UserInfomationComponent} from './user-infomation/user-infomation.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'productmen/:id',
         component: ProductDetailComponent
+      },
+      {
+        path: 'infomation',
+        component: UserInfomationComponent
       }
     ]
   }

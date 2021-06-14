@@ -14,4 +14,13 @@ export class UserService {
   register(infoUser: any): Observable<any>{
     return this.httpClient.post('http://localhost:3000/Users', infoUser);
   }
+  getUser(): Observable<any>{
+    return this.httpClient.get(`http://localhost:3000/Users`);
+  }
+  getUserByID(id: any): Observable<any>{
+    return this.httpClient.get(`http://localhost:3000/Users/${id}`);
+  }
+  postInfoUser(infoUser: any): Observable<any>{
+    return this.httpClient.post(`http://localhost:3000/Users`, infoUser);
+  }
 }

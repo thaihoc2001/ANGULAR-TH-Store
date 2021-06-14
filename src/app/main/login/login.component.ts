@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../share/service/user.service';
+import { ProductsService } from '../../share/service/products.service';
 import {Router} from '@angular/router';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +15,12 @@ export class LoginComponent implements OnInit {
   User: any;
   model: any = {};
   Username: any;
+  checkOut: any;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private productsService: ProductsService
+  ) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -36,9 +42,12 @@ export class LoginComponent implements OnInit {
         console.log('success');
         password.map((item: {id: number; }) => localStorage.setItem('token', JSON.stringify(item.id)));
         localStorage.setItem('message', 'true');
-        }else {
-          console.log('ERRO: fail');
+        console.log(this.checkOut);
+        if (localStorage.getItem('message') === 'true'){
         }
+      }else {
+        console.log('ERRO: fail');
+      }
     }
   }
 }

@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { NewsComponent } from './news/news.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UserInfomationComponent } from './user-infomation/user-infomation.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ProductMenComponent,
     ProductWomenComponent,
     ProductDetailComponent,
-    NewsComponent
+    NewsComponent,
+    UserInfomationComponent
   ],
   imports: [
     CommonModule,

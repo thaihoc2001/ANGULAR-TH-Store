@@ -23,4 +23,7 @@ export class ProductsService {
   getProductDetailByID(id: any): Observable<any>{
     return this.httpClient.get(`http://localhost:3000/products-detail/${id}`);
   }
+  postCheckOutUser(id: any, CheckOutUserInfo: any): Observable<any>{
+    return this.httpClient.post(`http://localhost:3000/checkout/${id}`, CheckOutUserInfo);
+  }
 }

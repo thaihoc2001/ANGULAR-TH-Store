@@ -557,30 +557,84 @@
       "phone": "094986611",
       "email": "111@gmail.com",
       "password": "111"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "name": "Nguyễn Thái Học",
+      "cartItem": [
+        [
+          [
+            {
+              "id": 8,
+              "name": "The Earth Polo",
+              "img1": "assets/image/img-product/polo/pr3-1.jpg",
+              "img2": "assets/image/img-product/polo/pr3-2.jpg",
+              "img3": "assets/image/img-product/polo/pr3-3.jpg",
+              "img4": "assets/image/img-product/polo/pr3-4.jpg",
+              "img5": "assets/image/img-product/polo/pr3-5.jpg",
+              "price": 90,
+              "tradeMark": "polo",
+              "slug": "polo",
+              "status": true,
+              "rating": 5,
+              "gender": "men"
+            },
+            {
+              "id": 1,
+              "name": "Cotton Polo-Collar Sweater",
+              "img1": "assets/image/img-product/polo/pr1-1.jpg",
+              "img2": "assets/image/img-product/polo/pr1-2.jpg",
+              "img3": "assets/image/img-product/polo/pr1-3.webp",
+              "img4": "assets/image/img-product/polo/pr1-4.jpg",
+              "img5": "assets/image/img-product/polo/p1-5.webp",
+              "price": 80,
+              "tradeMark": "polo",
+              "slug": "polo",
+              "status": true,
+              "rating": 5,
+              "gender": "men"
+            }
+          ],
+          {
+            "id": 4,
+            "name": "Soft Cotton Polo Shirt - All Fits",
+            "img1": "assets/image/img-product/polo/pr4-1.jpg",
+            "img2": "assets/image/img-product/polo/pr4-2.jpg",
+            "img3": "assets/image/img-product/polo/pr4-3.webp",
+            "img4": "assets/image/img-product/polo/pr4-4.jpg",
+            "img5": "assets/image/img-product/polo/pr4-5.jpg",
+            "price": 98,
+            "tradeMark": "polo",
+            "slug": "polo",
+            "status": true,
+            "rating": 5,
+            "gender": "men"
+          }
+        ]
+      ]
     },
     {
-      "name": "Nguyen Thai Hoc",
-      "address": "123 Trần Bá Giao - Phường 5 - Quận Gò Vấp - TP Hồ Chí Minh",
-      "phone": "0942221865",
-      "email": "thaihoc95x@gmail.com",
-      "password": "09977935245",
-      "id": 3
-    },
-    {
-      "name": "hoc",
-      "address": "123 nguyen thai hoc",
-      "phone": "123456789",
-      "email": "hoc@gmail.com",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "name": "hoc",
-      "address": "123 Trần Bá Giao - Phường 5 - Quận Gò Vấp - TP Hồ Chí Minh",
-      "phone": "123456789",
-      "email": "nguyenthaihoc2001@gmail.com",
-      "password": "123",
-      "id": 5
+      "id": 2,
+      "name": "Nguyễn Trung Hiếu",
+      "cartItem": [
+        {
+          "id": 4,
+          "name": "Soft Cotton Polo Shirt - All Fits",
+          "img1": "assets/image/img-product/polo/pr4-1.jpg",
+          "img2": "assets/image/img-product/polo/pr4-2.jpg",
+          "img3": "assets/image/img-product/polo/pr4-3.webp",
+          "img4": "assets/image/img-product/polo/pr4-4.jpg",
+          "img5": "assets/image/img-product/polo/pr4-5.jpg",
+          "price": 98,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men"
+        }
+      ]
     }
   ]
 }

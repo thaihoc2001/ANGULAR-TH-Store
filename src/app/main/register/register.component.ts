@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../share/service/user.service';
+import {ProductsService} from '../../share/service/products.service';
 import {first} from 'rxjs/operators';
 
 @Component({
@@ -10,8 +11,12 @@ import {first} from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
   infoUser: any = {};
+  checkOut: any = {};
+  checkoutProducts: any = [];
 
-  constructor( private fb: FormBuilder, private userService: UserService) { }
+  constructor( private fb: FormBuilder,
+               private userService: UserService,
+               private productsService: ProductsService) { }
 
   ngOnInit(): void {
     this.infoUser = this.fb.group({
