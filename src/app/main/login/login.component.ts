@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   Login(): void {
     const username = this.User.filter((item: { email: string; }) => item.email === this.model.username);
     this.Username = username;
+    localStorage.clear();
     if (username){
       const password = this.Username.filter((item: { password: string; }) => item.password === this.model.password);
       if (password.length !== 0){

@@ -24,6 +24,7 @@ export class ProductDetailComponent implements OnInit {
   cart: any = [];
   itemCart: any = [];
   prodcutItem: any = [];
+  localcart: any[] = [];
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
@@ -102,7 +103,15 @@ export class ProductDetailComponent implements OnInit {
         });
       }
     }else{
-
+        const checkCart = localStorage.getItem('cartItem');
+        if (checkCart){
+          let list: any = [];
+          list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
+          list.push(JSON.parse(JSON.stringify(products)));
+          localStorage.setItem('cartItem', JSON.stringify(list));
+        }else{
+          localStorage.setItem('cartItem', JSON.stringify(products));
+        }
     }
   }
 }
