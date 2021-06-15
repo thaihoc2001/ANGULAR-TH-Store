@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="container-fluid">
+  <h1>Your bag</h1>
+  <table class="table table-bordered" *ngFor="let item of cartItem">
+      <tr>
+        <td>
+          <img src="{{item.img1}}" width="200">
+        </td>
+        <td>
+          {{item.name}}
+        </td>
+        <td>
+          ${{item.price}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+        <td>
+          <button class="btn btn-dark text-light">Xóa</button>
+        </td>
+      </tr>
+  </table>
+</div>

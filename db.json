@@ -584,40 +584,54 @@
       "id": 1,
       "name": "Nguyễn Thái Học",
       "cartItem": [
-        [
-          {
-            "id": 1,
-            "name": "Cotton Polo-Collar Sweater",
-            "img1": "assets/image/img-product/polo/pr1-1.jpg",
-            "img2": "assets/image/img-product/polo/pr1-2.jpg",
-            "img3": "assets/image/img-product/polo/pr1-3.webp",
-            "img4": "assets/image/img-product/polo/pr1-4.jpg",
-            "img5": "assets/image/img-product/polo/p1-5.webp",
-            "price": 80,
-            "tradeMark": "polo",
-            "slug": "polo",
-            "status": true,
-            "rating": 5,
-            "gender": "men",
-            "quantity": 1
-          },
-          {
-            "id": 2,
-            "name": "The Earth Polo",
-            "img1": "assets/image/img-product/polo/pr2-1.jpg",
-            "img2": "assets/image/img-product/polo/pr2-2.jpg",
-            "img3": "assets/image/img-product/polo/pr2-3.jpg",
-            "img4": "assets/image/img-product/polo/pr2-4.jpg",
-            "img5": "assets/image/img-product/polo/pr2-5.jpg",
-            "price": 85,
-            "tradeMark": "polo",
-            "slug": "polo",
-            "status": true,
-            "rating": 5,
-            "gender": "men",
-            "quantity": 1
-          }
-        ]
+        {
+          "id": 1,
+          "name": "Cotton Polo-Collar Sweater",
+          "img1": "assets/image/img-product/polo/pr1-1.jpg",
+          "img2": "assets/image/img-product/polo/pr1-2.jpg",
+          "img3": "assets/image/img-product/polo/pr1-3.webp",
+          "img4": "assets/image/img-product/polo/pr1-4.jpg",
+          "img5": "assets/image/img-product/polo/p1-5.webp",
+          "price": 80,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "The Earth Polo",
+          "img1": "assets/image/img-product/polo/pr2-1.jpg",
+          "img2": "assets/image/img-product/polo/pr2-2.jpg",
+          "img3": "assets/image/img-product/polo/pr2-3.jpg",
+          "img4": "assets/image/img-product/polo/pr2-4.jpg",
+          "img5": "assets/image/img-product/polo/pr2-5.jpg",
+          "price": 85,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "name": "Soft Cotton Polo Shirt - All Fits",
+          "img1": "assets/image/img-product/polo/pr5-1.jpg",
+          "img2": "assets/image/img-product/polo/pr5-2.jpg",
+          "img3": "assets/image/img-product/polo/pr5-3.jpg",
+          "img4": "assets/image/img-product/polo/pr5-4.jpg",
+          "img5": "assets/image/img-product/polo/pr5-5.jpg",
+          "price": 98,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 1
+        }
       ]
     }
   ]

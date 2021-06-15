@@ -63,18 +63,19 @@ export class ProductDetailComponent implements OnInit {
   }
   getCartbyID(id: any): void{
     this.cartService.getCartByID(id).subscribe(itemCart => {
-      this.cart = itemCart;
-      JSON.stringify(this.cart);
+      this.cart = itemCart || [];
     });
   }
   addCart(products: any): void{
     const checkLogin = localStorage.getItem('message');
     if (checkLogin){
+      const list = [];
+      list.push(products);
       if (this.cart.length === 0){
         this.itemCart = {
           id: this.User.id,
           name: this.User.name,
-          cartItem: [products]
+          cartItem: list
         };
         this.cartService.postCart(this.itemCart).pipe(first()).subscribe({
           next: () => {
@@ -85,13 +86,12 @@ export class ProductDetailComponent implements OnInit {
           }
         });
       }else{
-        this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem));
+        this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
         this.prodcutItem.push(JSON.parse(JSON.stringify(products)));
-        console.log(products);
         this.itemCart = {
           id: this.User.id,
           name: this.User.name,
-          cartItem: [this.prodcutItem]
+          cartItem: this.prodcutItem
         };
         this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe(first()).subscribe({
           next: () => {
@@ -103,15 +103,33 @@ export class ProductDetailComponent implements OnInit {
         });
       }
     }else{
-        const checkCart = localStorage.getItem('cartItem');
-        if (checkCart){
-          let list: any = [];
-          list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
-          list.push(JSON.parse(JSON.stringify(products)));
+      const checkCart = localStorage.getItem('cartItem');
+      if (checkCart){
+        let list = [];
+        let index = -1;
+        list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].id === products.id){
+            console.log('cong thanh cong');
+            index = i;
+            console.log(index);
+            break;
+          }
+        }
+        if (index === -1){
+          console.log('post thanh cong');
+          list.push(products);
           localStorage.setItem('cartItem', JSON.stringify(list));
         }else{
-          localStorage.setItem('cartItem', JSON.stringify(products));
+          products.quantity += 1;
+          list[index] = products;
+          localStorage.setItem('cartItem', JSON.stringify(list));
         }
+      }else{
+        const list1: any = [];
+        list1.push(products);
+        localStorage.setItem('cartItem', JSON.stringify(list1));
+      }
     }
   }
 }
