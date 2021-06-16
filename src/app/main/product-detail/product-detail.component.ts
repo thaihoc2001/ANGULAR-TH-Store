@@ -90,12 +90,12 @@ export class ProductDetailComponent implements OnInit {
       }else{
         this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
         for (let i = 0; i < this.prodcutItem.length; i++){
-            if (this.prodcutItem[i].id === products.id){
-              console.log('trung ma');
-              index = i;
-              console.log(index);
-              break;
-            }
+          if (this.prodcutItem[i].id === products.id){
+            console.log('trung ma');
+            index = i;
+            console.log(index);
+            break;
+          }
         }
         if (index === -1){
           this.prodcutItem.push(JSON.parse(JSON.stringify(products)));

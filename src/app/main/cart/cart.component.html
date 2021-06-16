@@ -1,20 +1,22 @@
 <div class="container-fluid">
   <h1>Your bag</h1>
-  <table class="table table-bordered" *ngFor="let item of cartItem">
+  <table class="table" *ngFor="let item of cartItem">
       <tr>
-        <td>
+        <td style="width: 20% !important;">
           <img src="{{item.img1}}" width="200">
         </td>
-        <td>
+        <td style="width: 20% !important;">
           {{item.name}}
         </td>
-        <td>
+        <td style="width: 20% !important;">
+          <button class="btn btn-dark" (click)="inc(item)" >+</button>
+          {{item.quantity}}
+          <button class="btn btn-dark" (click)="dec(item)">-</button>
+        </td>
+        <td style="width: 20% !important;">
           ${{item.price}}
         </td>
-        <td>
-          {{item.quantity}}
-        </td>
-        <td>
+        <td style="width: 20% !important;">
           <button class="btn btn-dark text-light">Xóa</button>
         </td>
       </tr>
