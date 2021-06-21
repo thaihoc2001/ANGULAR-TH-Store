@@ -22,7 +22,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 2,
@@ -38,7 +43,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 3,
@@ -54,7 +64,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 4,
@@ -70,7 +85,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 5,
@@ -86,7 +106,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 6,
@@ -102,7 +127,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 7,
@@ -118,7 +148,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 8,
@@ -134,7 +169,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 9,
@@ -150,7 +190,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 10,
@@ -166,7 +211,12 @@
       "status": true,
       "rating": 5,
       "gender": "men",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 11,
@@ -181,7 +231,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 12,
@@ -196,7 +251,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 13,
@@ -211,7 +271,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 14,
@@ -226,7 +291,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 15,
@@ -241,7 +311,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 11,
@@ -256,7 +331,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 12,
@@ -271,7 +351,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 13,
@@ -286,7 +371,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 14,
@@ -301,7 +391,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     },
     {
       "id": 15,
@@ -316,7 +411,12 @@
       "status": true,
       "rating": 5,
       "gender": "women",
-      "quantity": 1
+      "quantity": 1,
+      "size": [
+        "S",
+        "M",
+        "L"
+      ]
     }
   ],
   "products-detail": [
@@ -585,19 +685,37 @@
       "name": "Nguyễn Thái Học",
       "cartItem": [
         {
-          "id": 12,
-          "name": "Belted Linen Sleeveless Dress",
-          "img1": "assets/image/img-product/dresses/pr2-1.jpg",
-          "img2": "assets/image/img-product/dresses/pr2-2.jpg",
-          "img3": "assets/image/img-product/dresses/pr2-3.jpg",
-          "img4": "assets/image/img-product/dresses/pr2-4.jpg",
-          "img5": "assets/image/img-product/dresses/pr2-5.jpg",
-          "price": 398,
+          "id": 1,
+          "name": "Cotton Polo-Collar Sweater",
+          "img1": "assets/image/img-product/polo/pr1-1.jpg",
+          "img2": "assets/image/img-product/polo/pr1-2.jpg",
+          "img3": "assets/image/img-product/polo/pr1-3.webp",
+          "img4": "assets/image/img-product/polo/pr1-4.jpg",
+          "img5": "assets/image/img-product/polo/p1-5.webp",
+          "price": 80,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 1,
+          "size": "M"
+        },
+        {
+          "id": 13,
+          "name": "Southwestern Sleeveless Henley Dress",
+          "img1": "assets/image/img-product/dresses/pr3-1.jpg",
+          "img2": "assets/image/img-product/dresses/pr3-2.jpg",
+          "img3": "assets/image/img-product/dresses/pr3-3.webp",
+          "img4": "assets/image/img-product/dresses/pr3-4.webp",
+          "img5": "assets/image/img-product/dresses/pr3-5.webp",
+          "price": 228,
           "slug": "dresses",
           "status": true,
           "rating": 5,
           "gender": "women",
-          "quantity": 4
+          "quantity": 1,
+          "size": "L"
         }
       ]
     },

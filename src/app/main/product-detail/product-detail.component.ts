@@ -25,6 +25,7 @@ export class ProductDetailComponent implements OnInit {
   itemCart: any = [];
   prodcutItem: any = [];
   localcart: any[] = [];
+  size: any;
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
@@ -67,95 +68,107 @@ export class ProductDetailComponent implements OnInit {
     });
   }
   addCart(products: any): void{
-    const checkLogin = localStorage.getItem('message');
-    if (checkLogin){
-      const list = [];
-      let index = -1;
-      list.push(products);
-      if (this.cart.length === 0){
-        this.itemCart = {
-          id: this.User.id,
-          name: this.User.name,
-          cartItem: list
-        };
-        this.cartService.postCart(this.itemCart).pipe().subscribe({
-          next: () => {
-            console.log('Post suscess 1');
-            window.location.reload();
-          },
-          error: erro => {
-            console.log('ERRR: Post fail');
-          }
-        });
-      }else{
-        this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
-        for (let i = 0; i < this.prodcutItem.length; i++){
-          if (this.prodcutItem[i].id === products.id){
-            console.log('trung ma');
-            index = i;
-            console.log(index);
-            break;
-          }
-        }
-        if (index === -1){
-          this.prodcutItem.push(JSON.parse(JSON.stringify(products)));
+    if (this.size){
+      products.size = this.size;
+      const checkLogin = localStorage.getItem('message');
+      if (checkLogin){
+        const list = [];
+        let index = -1;
+        list.push(products);
+        if (this.cart.length === 0){
           this.itemCart = {
             id: this.User.id,
             name: this.User.name,
-            cartItem: this.prodcutItem
+            cartItem: list
           };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
+          this.cartService.postCart(this.itemCart).pipe().subscribe({
             next: () => {
-              console.log('Put suscess 3');
+              console.log('Post suscess 1');
               window.location.reload();
             },
             error: erro => {
-              console.log('ERRR: put fail 3');
+              console.log('ERRR: Post fail');
             }
           });
         }else{
-          this.prodcutItem[index].quantity += 1;
-          this.itemCart = {
-            id: this.User.id,
-            name: this.User.name,
-            cartItem: this.prodcutItem
-          };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
-            next: () => {
-              console.log('Put suscess 4');
-            },
-            error: erro => {
-              console.log('ERRR: put fail 4');
+          this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
+          for (let i = 0; i < this.prodcutItem.length; i++){
+            if (this.prodcutItem[i].id === products.id){
+              console.log('trung ma');
+              index = i;
+              console.log(index);
+              break;
             }
-          });
+          }
+          if (index === -1){
+            this.prodcutItem.push(JSON.parse(JSON.stringify(products)));
+            this.itemCart = {
+              id: this.User.id,
+              name: this.User.name,
+              cartItem: this.prodcutItem
+            };
+            this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
+              next: () => {
+                console.log('Put suscess 3');
+                window.location.reload();
+              },
+              error: erro => {
+                console.log('ERRR: put fail 3');
+              }
+            });
+          }else{
+            this.prodcutItem[index].quantity += 1;
+            this.itemCart = {
+              id: this.User.id,
+              name: this.User.name,
+              cartItem: this.prodcutItem
+            };
+            this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
+              next: () => {
+                console.log('Put suscess 4');
+              },
+              error: erro => {
+                console.log('ERRR: put fail 4');
+              }
+            });
+          }
+        }
+      }else{
+        const checkCart = localStorage.getItem('cartItem');
+        if (checkCart){
+          let list = [];
+          let index = -1;
+          list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
+          for (let i = 0; i < list.length; i++) {
+            if (list[i].id === products.id){
+              console.log('cong thanh cong');
+              index = i;
+              console.log(index);
+              break;
+            }
+          }
+          if (index === -1){
+            console.log('post thanh cong');
+            list.push(products);
+            localStorage.setItem('cartItem', JSON.stringify(list));
+          }else{
+            list[index].quantity += 1;
+            localStorage.setItem('cartItem', JSON.stringify(list));
+          }
+        }else{
+          const list1: any = [];
+          list1.push(products);
+          localStorage.setItem('cartItem', JSON.stringify(list1));
         }
       }
     }else{
-      const checkCart = localStorage.getItem('cartItem');
-      if (checkCart){
-        let list = [];
-        let index = -1;
-        list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
-        for (let i = 0; i < list.length; i++) {
-          if (list[i].id === products.id){
-            console.log('cong thanh cong');
-            index = i;
-            console.log(index);
-            break;
-          }
-        }
-        if (index === -1){
-          console.log('post thanh cong');
-          list.push(products);
-          localStorage.setItem('cartItem', JSON.stringify(list));
-        }else{
-          list[index].quantity += 1;
-          localStorage.setItem('cartItem', JSON.stringify(list));
-        }
-      }else{
-        const list1: any = [];
-        list1.push(products);
-        localStorage.setItem('cartItem', JSON.stringify(list1));
+      alert('Please choose the right size');
+    }
+  }
+  selectSize(itemSize: any): void{
+    for (const item of this.products.size) {
+      if (item === itemSize){
+        this.size = item;
       }
     }
   }
