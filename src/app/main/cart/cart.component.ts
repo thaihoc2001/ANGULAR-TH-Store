@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from '../../share/service/cart.service';
 import {ProductsService} from '../../share/service/products.service';
 import {UserService} from '../../share/service/user.service';
@@ -14,10 +14,12 @@ export class CartComponent implements OnInit {
   itemCart: any = [];
   prodcutItem: any = [];
   cart: any = [];
-
+  total = 0;
+  price = 0;
 
   constructor( private cartService: CartService,
-               private userService: UserService) { }
+               private userService: UserService,
+               private productsService: ProductsService) { }
 
   ngOnInit(): void {
     this.loaddata();
@@ -35,103 +37,66 @@ export class CartComponent implements OnInit {
       this.cartService.getCartByID(localStorage.getItem('token')).subscribe(res => {
         this.cart = res;
         this.cartItem = res.cartItem || [];
-        console.log(this.cartItem);
+        // this.cartItem.forEach((data: { price: any; quantity: any; }) => this.total = data.price * data.quantity);
+        // tslint:disable-next-line:only-arrow-functions typedef
+        this.total = this.cartItem.reduce(function(acc: any, val: any){
+          return acc + (val.price * val.quantity);
+        }, 0);
       });
     }else{
       this.cartItem = JSON.parse(localStorage.getItem('cartItem') as string);
       console.log(this.cartItem);
+      // tslint:disable-next-line:only-arrow-functions typedef
+      this.total = this.cartItem.reduce(function(acc: any, val: any){
+        return acc + (val.price * val.quantity);
+      }, 0);
+
     }
   }
-  totalPrice(item: any): void{
-    let total = 0;
-    total = item.quantity * item.price;
-    item.price = total;
-  }
-
   inc(products: any): void{
     const checkLogin = localStorage.getItem('message');
     if (checkLogin){
-      const list = [];
+      let list: any = [];
       let index = -1;
-      list.push(products);
-      if (this.cart.length === 0){
-        this.itemCart = {
-          id: this.User.id,
-          name: this.User.name,
-          cartItem: list
-        };
-        this.cartService.postCart(this.itemCart).pipe().subscribe({
-          next: () => {
-            window.location.reload();
-          },
-          error: erro => {
-            console.log(erro);
-          }
-        });
-      }else{
-        this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
-        for (let i = 0; i < this.prodcutItem.length; i++){
-          if (this.prodcutItem[i].id === products.id){
-            index = i;
-            break;
-          }
-        }
-        if (index === -1){
-          this.prodcutItem.push(JSON.parse(JSON.stringify(products)));
-          this.itemCart = {
-            id: this.User.id,
-            name: this.User.name,
-            cartItem: this.prodcutItem
-          };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
-            next: () => {
-              window.location.reload();
-            },
-            error: erro => {
-              console.log(erro);
-            }
-          });
-        }else{
-          this.prodcutItem[index].quantity += 1;
-          this.itemCart = {
-            id: this.User.id,
-            name: this.User.name,
-            cartItem: this.prodcutItem
-          };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
-            next: () => {
-            },
-            error: erro => {
-              console.log(erro);
-            }
-          });
-          products.quantity = this.prodcutItem[index].quantity;
+      list = JSON.parse(JSON.stringify(this.cartItem)) || [];
+      for (let i = 0; i < list.length; i++){
+        if (list[i].id === products.id){
+          index = i;
+          break;
         }
       }
+      list[index].quantity += 1;
+      this.itemCart = {
+        id: this.User.id,
+        name: this.User.name,
+        cartItem: list
+      };
+      this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).subscribe({
+        next: () => {
+          this.loaddata();
+        },
+        error: erro => {
+          console.log(erro);
+        }
+      });
+      products.quantity = list[index].quantity;
     }else{
       const checkCart = localStorage.getItem('cartItem');
       if (checkCart){
-        let list = [];
         let index = -1;
-        list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
-        for (let i = 0; i < list.length; i++) {
-          if (list[i].id === products.id){
+        this.cartItem = JSON.parse(localStorage.getItem('cartItem') as string) || [];
+        for (let i = 0; i < this.cartItem.length; i++) {
+          if (this.cartItem[i].id === products.id){
             index = i;
             break;
           }
         }
-        if (index === -1){
-          list.push(products);
-          localStorage.setItem('cartItem', JSON.stringify(list));
-        }else{
-          list[index].quantity += 1;
-          localStorage.setItem('cartItem', JSON.stringify(list));
-          products.quantity = list[index].quantity;
+        if (index !== -1){
+          this.cartItem[index].quantity += 1;
+          localStorage.setItem('cartItem', JSON.stringify(this.cartItem));
+          products.quantity = this.cartItem[index].quantity;
+          this.loaddata();
         }
-      }else{
-        const list1: any = [];
-        list1.push(products);
-        localStorage.setItem('cartItem', JSON.stringify(list1));
       }
     }
   }
@@ -139,89 +104,87 @@ export class CartComponent implements OnInit {
   dec(products: any): void {
     const checkLogin = localStorage.getItem('message');
     if (checkLogin){
-      const list = [];
+      let list: any = [];
       let index = -1;
-      list.push(products);
-      if (this.cart.length === 0){
-        this.itemCart = {
-          id: this.User.id,
-          name: this.User.name,
-          cartItem: list
-        };
-        this.cartService.postCart(this.itemCart).pipe().subscribe({
-          next: () => {
-            window.location.reload();
-          },
-          error: erro => {
-            console.log(erro);
-          }
-        });
-      }else{
-        this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
-        for (let i = 0; i < this.prodcutItem.length; i++){
-          if (this.prodcutItem[i].id === products.id){
+      list = JSON.parse(JSON.stringify(this.cartItem)) || [];
+      for (let i = 0; i < list.length; i++){
+        if (list[i].id === products.id){
+          index = i;
+          break;
+        }
+      }
+      list[index].quantity -= 1;
+      this.itemCart = {
+        id: this.User.id,
+        name: this.User.name,
+        cartItem: list
+      };
+      this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).subscribe({
+        next: () => {
+          this.loaddata();
+        },
+        error: erro => {
+          console.log(erro);
+        }
+      });
+      products.quantity = list[index].quantity;
+    }else{
+      const checkCart = localStorage.getItem('cartItem');
+      if (checkCart){
+        let index = -1;
+        this.cartItem = JSON.parse(localStorage.getItem('cartItem') as string) || [];
+        for (let i = 0; i < this.cartItem.length; i++) {
+          if (this.cartItem[i].id === products.id){
             index = i;
             break;
           }
         }
-        if (index === -1){
-          this.prodcutItem.push(JSON.parse(JSON.stringify(products)));
+        if (index !== -1){
+          this.cartItem[index].quantity -= 1;
+          localStorage.setItem('cartItem', JSON.stringify(this.cartItem));
+          products.quantity = this.cartItem[index].quantity;
+          this.loaddata();
+        }
+      }
+    }
+  }
+  removeItem(products: any): void{
+    const checkLogin = localStorage.getItem('message');
+    if (checkLogin){
+      let list: any = [];
+      let index = -1;
+      list = JSON.parse(JSON.stringify(this.cartItem)) || [];
+      for (let i = 0; i < list.length; i++){
+        if (list[i].id === products.id){
+          list.splice(i , 1);
           this.itemCart = {
             id: this.User.id,
             name: this.User.name,
-            cartItem: this.prodcutItem
+            cartItem: list
           };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
+          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).subscribe({
             next: () => {
-              window.location.reload();
+              this.loaddata();
             },
             error: erro => {
               console.log(erro);
             }
           });
-        }else{
-          this.prodcutItem[index].quantity -= 1;
-          this.itemCart = {
-            id: this.User.id,
-            name: this.User.name,
-            cartItem: this.prodcutItem
-          };
-          this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).pipe().subscribe({
-            next: () => {
-            },
-            error: erro => {
-              console.log(erro);
-            }
-          });
-          products.quantity = this.prodcutItem[index].quantity;
         }
       }
     }else{
       const checkCart = localStorage.getItem('cartItem');
       if (checkCart){
         let list = [];
-        let index = -1;
         list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
         for (let i = 0; i < list.length; i++) {
           if (list[i].id === products.id){
-            index = i;
-            break;
+            list.splice(i , 1);
+            localStorage.setItem('cartItem', JSON.stringify(list));
+            this.loaddata();
           }
         }
-        if (index === -1){
-          list.push(products);
-          localStorage.setItem('cartItem', JSON.stringify(list));
-        }else{
-          list[index].quantity -= 1;
-          localStorage.setItem('cartItem', JSON.stringify(list));
-          products.quantity = list[index].quantity;
-        }
-      }else{
-        const list1: any = [];
-        list1.push(products);
-        localStorage.setItem('cartItem', JSON.stringify(list1));
       }
     }
   }
-
 }

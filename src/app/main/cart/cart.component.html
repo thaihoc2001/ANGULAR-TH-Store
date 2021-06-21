@@ -9,16 +9,17 @@
           {{item.name}}
         </td>
         <td style="width: 20% !important;">
-          <button class="btn btn-dark" (click)="inc(item)" >+</button>
+          <button class="btn btn-dark" (click)="inc(item)">+</button>
           {{item.quantity}}
           <button class="btn btn-dark" (click)="dec(item)">-</button>
         </td>
-        <td style="width: 20% !important;">
-          ${{item.price}}
+        <td style="width: 20% !important;" id="price">
+          ${{item.quantity * item.price}}
         </td>
         <td style="width: 20% !important;">
-          <button class="btn btn-dark text-light">Xóa</button>
+          <button class="btn btn-dark text-light" (click)="removeItem(item)">Xóa</button>
         </td>
       </tr>
   </table>
+  <h1>Total: ${{total}}</h1>
 </div>
