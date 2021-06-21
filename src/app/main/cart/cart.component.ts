@@ -12,14 +12,12 @@ export class CartComponent implements OnInit {
   cartItem: any = [];
   User: any = [];
   itemCart: any = [];
-  prodcutItem: any = [];
   cart: any = [];
   total = 0;
   price = 0;
 
   constructor( private cartService: CartService,
-               private userService: UserService,
-               private productsService: ProductsService) { }
+               private userService: UserService) { }
 
   ngOnInit(): void {
     this.loaddata();
@@ -114,20 +112,24 @@ export class CartComponent implements OnInit {
         }
       }
       list[index].quantity -= 1;
-      this.itemCart = {
-        id: this.User.id,
-        name: this.User.name,
-        cartItem: list
-      };
-      this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).subscribe({
-        next: () => {
-          this.loaddata();
-        },
-        error: erro => {
-          console.log(erro);
-        }
-      });
-      products.quantity = list[index].quantity;
+      if (list[index].quantity === 0){
+        this.removeItem(products);
+      }else{
+        this.itemCart = {
+          id: this.User.id,
+          name: this.User.name,
+          cartItem: list
+        };
+        this.cartService.putCartByID(localStorage.getItem('token'), this.itemCart).subscribe({
+          next: () => {
+            this.loaddata();
+          },
+          error: erro => {
+            console.log(erro);
+          }
+        });
+        products.quantity = list[index].quantity;
+      }
     }else{
       const checkCart = localStorage.getItem('cartItem');
       if (checkCart){
@@ -141,9 +143,13 @@ export class CartComponent implements OnInit {
         }
         if (index !== -1){
           this.cartItem[index].quantity -= 1;
-          localStorage.setItem('cartItem', JSON.stringify(this.cartItem));
-          products.quantity = this.cartItem[index].quantity;
-          this.loaddata();
+          if(this.cartItem[index].quantity === 0){
+            this.removeItem(products);
+          }else{
+            localStorage.setItem('cartItem', JSON.stringify(this.cartItem));
+            products.quantity = this.cartItem[index].quantity;
+            this.loaddata();
+          }
         }
       }
     }
@@ -152,7 +158,6 @@ export class CartComponent implements OnInit {
     const checkLogin = localStorage.getItem('message');
     if (checkLogin){
       let list: any = [];
-      let index = -1;
       list = JSON.parse(JSON.stringify(this.cartItem)) || [];
       for (let i = 0; i < list.length; i++){
         if (list[i].id === products.id){
