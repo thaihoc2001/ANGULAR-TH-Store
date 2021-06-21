@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   checkMesage(): boolean{
-    if(localStorage.getItem('message') === 'true'){
+    if (localStorage.getItem('message') === 'true'){
       return true;
     }else{
       return false;

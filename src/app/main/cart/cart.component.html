@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <h1>Your bag</h1>
-  <table class="table" *ngFor="let item of cartItem">
+  <table class="table bg-light" *ngFor="let item of cartItem">
       <tr>
         <td style="width: 20% !important;">
           <img src="{{item.img1}}" width="200">
@@ -18,9 +18,10 @@
           ${{item.quantity * item.price}}
         </td>
         <td style="width: 20% !important;">
-          <button class="btn btn-dark text-light" (click)="removeItem(item)">Xóa</button>
+          <button class="btn btn-dark" (click)="removeItem(item)">Xóa</button>
         </td>
       </tr>
   </table>
   <h1>Total: ${{total}}</h1>
+  <button class="btn btn-dark">Buy now</button>
 </div>

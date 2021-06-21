@@ -143,7 +143,7 @@ export class CartComponent implements OnInit {
         }
         if (index !== -1){
           this.cartItem[index].quantity -= 1;
-          if(this.cartItem[index].quantity === 0){
+          if (this.cartItem[index].quantity === 0){
             this.removeItem(products);
           }else{
             localStorage.setItem('cartItem', JSON.stringify(this.cartItem));

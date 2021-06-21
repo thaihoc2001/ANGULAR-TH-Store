@@ -5,7 +5,7 @@
   </button>
 
   <div class="collapse navbar-collapse my-lg-0 m-3 " id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-10"  style="width: 80% !important;">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-10"  style="width: 90% !important;">
       <li class="nav-item">
         <a class="nav-link" routerLink="/news">NEWS<span class="sr-only">(current)</span></a>
       </li>
@@ -19,23 +19,27 @@
         <a class="nav-link" routerLink="/colection">COLECTION</a>
       </li>
     </ul>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-1" style="width: 20% !important;">
+    <ul class="navbar-nav mt-2 mt-lg-0 justify-content-center" style="width: 10% !important;">
       <li class="nav-item" *ngIf="!checkMesage()">
         <a class="nav-link" routerLink="/login">LOGIN</a>
       </li>
       <li class="nav-item" *ngIf="!checkMesage()">
         <a class="nav-link ml-5" routerLink="/register">REGISTER</a>
       </li>
+      <li class="nav-item" *ngIf="checkMesage()">
+        <a class="nav-link ml-5" routerLink="/infomation">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link ml-5" routerLink="/cart">
-          <i class="fa fa-cart-plus" aria-hidden="true" style="width: 90px; !important;"></i>
+        <a class="nav-link ml-5 w-auto" routerLink="/cart">
+          <i class="fa fa-cart-plus w-auto" aria-hidden="true" style="width: 90px; !important;"></i>
         </a>
       </li>
       <li class="nav-item" *ngIf="checkMesage()">
-        <a class="nav-link ml-5" routerLink="/register" (click)="Sigout()">LOGOUT</a>
-      </li>
-      <li class="nav-item" *ngIf="checkMesage()">
-        <a class="nav-link ml-5" routerLink="/infomation"> Update info</a>
+        <a class="nav-link ml-5" routerLink="/register" (click)="Sigout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
       </li>
     </ul>
   </div>
