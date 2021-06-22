@@ -40,6 +40,12 @@
       </div>
     </div>
     <div class="article-right w-75 mt-5 d-inline">
+      <div class="w-100 h-auto text-end">
+        <i class="fa fa-sort-amount-desc" aria-hidden="true" (click)="sortByPrice()" *ngIf="sortPrice" style="margin-right: 50px !important;">SORT BY PRICE</i>
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"(click)="sortByPrice()" *ngIf="!sortPrice" style="margin-right: 50px !important;">SORT BY PRICE</i>
+        <i class="fa fa-sort-amount-desc" aria-hidden="true"(click)="sortByName('name')" *ngIf="isDesc" style="margin-right: 50px !important;">SORT BY NAME</i>
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"(click)="sortByName('name')" *ngIf="!isDesc" style="margin-right: 50px !important;">SORT BY NAME</i>
+      </div>
       <div class="product w-25 mt-5" *ngFor="let item of product | paginate: {itemsPerPage: 8, currentPage: page}" style="float: left;">
         <a routerLink="/productmen/{{item.id}}" class="text-decoration-none text-dark" >
           <img src="{{item.img1}}" class="w-100" style="width: 90% !important">

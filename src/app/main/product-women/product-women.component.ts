@@ -12,6 +12,8 @@ export class ProductWomenComponent implements OnInit {
   public product: Array<any> = [];
   productmen: any;
   page = 1;
+  sortPrice = true;
+  isDesc = true;
   ngOnInit(): void {
     this.getProduct();
   }
@@ -23,6 +25,30 @@ export class ProductWomenComponent implements OnInit {
       const listPatient = listUser.filter( (user: { gender: string; }) => user.gender === 'women');
       console.log(listPatient);
       this.product = listPatient;
+    });
+  }
+  sortByPrice(): void{
+    if (this.sortPrice){
+      const newarr = this.product.sort((a, b) => a.price - b.price);
+      this.product = newarr;
+    }else {
+      const newarr = this.product.sort((a, b) => b.price - a.price);
+      this.product = newarr;
+    }
+    this.sortPrice = !this.sortPrice;
+  }
+  sortByName(name: any): void{
+    this.isDesc = !this.isDesc;
+    const direction = this.isDesc ? 1 : -1;
+    // tslint:disable-next-line:only-arrow-functions typedef
+    this.product.sort(function(a, b){
+      if (a[name] < b[name]){
+        return -1 * direction;
+      }else if (a[name] > b[name]){
+        return  1 * direction;
+      }else {
+        return 0;
+      }
     });
   }
 }
