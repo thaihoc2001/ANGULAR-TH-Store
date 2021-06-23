@@ -9,14 +9,16 @@ import _ = require('lodash');
   styleUrls: ['./product-men.component.scss']
 })
 export class ProductMenComponent implements OnInit {
-
   constructor( private commonService: ProductsService ) { }
+  filter = { polo: false, tshirt: true, sweater: true, jean: true };
   public product: Array<any> = [];
   productmen: any;
   page = 1;
   sortPrice = true;
   isDesc = true;
   checkedBrand = false;
+  newArr: any = [];
+  tempArr: any = [];
   ngOnInit(): void {
     this.getProduct();
   }
@@ -28,6 +30,7 @@ export class ProductMenComponent implements OnInit {
       const listPatient = listUser.filter( (user: { gender: string; }) => user.gender === 'men');
       console.log(listPatient);
       this.product = listPatient;
+      this.productmen = listPatient;
     });
   }
 
@@ -55,14 +58,36 @@ export class ProductMenComponent implements OnInit {
       }
     });
   }
-
-  filterBrand(brand: any): void{
-    if (!this.checkedBrand){
-      const brandArr = this.product.filter(item => item.slug === brand);
-      this.product = brandArr;
+  onChange(event: any): void {
+    if (event.target.checked){
+      let arr1 = [];
+      let arr2 = [];
+      this.tempArr = this.productmen.filter((item: { slug: any; }) => item.slug === event.target.value);
+      this.product = [];
+      this.newArr.push(this.tempArr);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.newArr.length; i++){
+        arr1 = this.newArr[i];
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < arr1.length ; j++){
+          arr2 = arr1[j];
+          this.product.push(arr2);
+        }
+      }
     }else{
-      this.product = this.product;
+      this.tempArr = this.product.filter((item: { slug: any; }) => item.slug !== event.target.value);
+      this.newArr = [];
+      this.product = [];
+      this.newArr.push(this.tempArr);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.newArr.length; i++){
+        const arr1 = this.newArr[i];
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < arr1.length ; j++){
+          const arr2 = arr1[j];
+          this.product.push(arr2);
+        }
+      }
     }
-    this.checkedBrand = !this.checkedBrand;
   }
 }

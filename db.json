@@ -997,8 +997,24 @@
           "status": true,
           "rating": 5,
           "gender": "men",
-          "quantity": 1,
+          "quantity": 2,
           "size": "M"
+        },
+        {
+          "id": 15,
+          "name": "Linen Halter Dress",
+          "img1": "assets/image/img-product/dresses/pr5-1.jpg",
+          "img2": "assets/image/img-product/dresses/pr5-2.jpg",
+          "img3": "assets/image/img-product/dresses/pr5-3.jpg",
+          "img4": "assets/image/img-product/dresses/pr5-4.jpg",
+          "img5": "assets/image/img-product/dresses/pr5-5.jpg",
+          "price": 298,
+          "slug": "dresses",
+          "status": true,
+          "rating": 5,
+          "gender": "women",
+          "quantity": 3,
+          "size": "S"
         }
       ]
     },
@@ -1021,6 +1037,22 @@
           "rating": 5,
           "gender": "men",
           "quantity": 1
+        },
+        {
+          "id": 12,
+          "name": "Belted Linen Sleeveless Dress",
+          "img1": "assets/image/img-product/dresses/pr2-1.jpg",
+          "img2": "assets/image/img-product/dresses/pr2-2.jpg",
+          "img3": "assets/image/img-product/dresses/pr2-3.jpg",
+          "img4": "assets/image/img-product/dresses/pr2-4.jpg",
+          "img5": "assets/image/img-product/dresses/pr2-5.jpg",
+          "price": 398,
+          "slug": "dresses",
+          "status": true,
+          "rating": 5,
+          "gender": "women",
+          "quantity": 1,
+          "size": "S"
         }
       ]
     }

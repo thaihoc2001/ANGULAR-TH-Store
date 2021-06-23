@@ -26,6 +26,7 @@ export class ProductDetailComponent implements OnInit {
   prodcutItem: any = [];
   localcart: any[] = [];
   size: any;
+  productsByBrand: any = [];
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
@@ -34,12 +35,21 @@ export class ProductDetailComponent implements OnInit {
     this.getProductDetail(this.id);
     this.getUser(localStorage.getItem('token'));
     this.getCartbyID(localStorage.getItem('token'));
+    this.getProductsByBrand();
   }
   getProdcut(id: any): void{
     this.productsService.getProductsbyID(id).subscribe((res) => {
       console.log(res);
       this.products = res;
     });
+  }
+  getProductsByBrand(): void{
+    this.productsService.getallProducts().subscribe(res => {
+      const brand = res.filter((item: { slug: any; }) => item.slug === this.products.slug);
+      this.productsByBrand = brand;
+      console.log(this.productsByBrand);
+      }
+    );
   }
   getProductDetail(id: any): void{
     this.productsService.getProductDetailByID(id).subscribe(res => {

@@ -1,4 +1,5 @@
-<div class="section d-flex mt-5">
+<div class="section">
+  <div class="d-flex mt-5">
     <div class="article-left w-50 d-flex">
       <div class="list-img w-25 d-inline text-center">
         <img src="{{products.img1}}" width="120" (click)="showImage('img1')" id="img1">
@@ -32,4 +33,18 @@
         <li>{{describe.content8}}</li>
       </ul>
     </div>
+  </div>
+  <h1 CLASS="mt-5 w-100 text-center">RELATER PRODUCTS</h1>
+  <div class="container d-flex mt-5 justify-content-center" style="overflow-x: auto;">
+    <div  *ngFor="let item of productsByBrand">
+      <div class="product w-25 m-0" style="width: 350px !important;">
+        <a href="/productmen/{{item.id}}" class="text-decoration-none text-dark" >
+          <img src="{{item.img1}}" width="300">
+          <p>{{item.name}}</p>
+          <p>${{item.price}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>

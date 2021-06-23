@@ -43,7 +43,7 @@ const routes: Routes = [
       },
       {
         path: 'colection',
-        component: ColectionComponent
+        loadChildren: () => import('./colection/colection.module').then(m => m.ColectionModule)
       },
       {
         path: 'productwomen',

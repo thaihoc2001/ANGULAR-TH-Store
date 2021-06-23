@@ -1,0 +1,13 @@
+.list-colection{
+    & li{
+      width: 20%;
+      & a{
+        text-decoration: none;
+        color: #9A5C4D;
+      }
+      & a:hover{
+        opacity: 0.8;
+        border-bottom: 1px solid #9A5C4D;
+      }
+    }
+}
