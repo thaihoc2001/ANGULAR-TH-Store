@@ -23,4 +23,7 @@ export class UserService {
   postInfoUser(infoUser: any): Observable<any>{
     return this.httpClient.post(`http://localhost:3000/Users`, infoUser);
   }
+  putInfoUser(infoUser: any, id: any): Observable<any>{
+    return this.httpClient.put(`http://localhost:3000/Users/${id}`, infoUser);
+  }
 }

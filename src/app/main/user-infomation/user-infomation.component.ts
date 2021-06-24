@@ -12,19 +12,34 @@ import {first} from 'rxjs/operators';
 export class UserInfomationComponent implements OnInit {
   infoUser: any = {};
   checkOut: any = {};
+  User: any = [];
+  id: any;
 
   constructor( private fb: FormBuilder,
                private userService: UserService,
-               private productsService: ProductsService) { }
-
-  ngOnInit(): void {
+               private productsService: ProductsService) {
     this.infoUser = this.fb.group({
       name: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required)
+      phone: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+    });
+  }
+
+  ngOnInit(): void {
+    this.getUserByID();
+  }
+  getUserByID(): void{
+    this.userService.getUserByID(localStorage.getItem('token')).subscribe(res => {
+      this.User = res;
+      this.id = this.User.id;
     });
   }
   onSubmit(): void {
-
+    console.log(this.infoUser.value);
+    // this.userService.putInfoUser(this.infoUser.value, this.id).subscribe(res => {
+    //   console.log(res);
+    //   console.log('oke');
+    // });
   }
 }

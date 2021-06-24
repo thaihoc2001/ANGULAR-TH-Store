@@ -1,40 +1,92 @@
-<form action="" name="myForm" [formGroup]="infoUser" (ngSubmit)="onSubmit()">
-  <div class="container bg-light mt-5 mb-5" style="width: 500px !important;">
-    <div class="text-center">
-      <h1>REGISTER</h1>
+<div class="outer container-fluid m-0 p-0">
+  <div class="d-flex col-5">
+    <div class="w-50 text-center" style="margin-top: 200px">
+      <img src="assets/image/img-home/avatar-user-3.png" width="200"> <br>
+      <button type="button" class="btn btn-dark w-50" data-toggle="modal" data-target="#editInfo">
+        EDIT PROFILE
+      </button>
     </div>
-    <div class="reg-form mb-2 form-group">
-      <label for="name" class="form-label">Name:</label>
-      <input
-        type="name"
-        class="form-control"
-        id="name"
-        name="name"
-        formControlName="name"
-      >
-    </div>
-    <div class="reg-form mb-2 form-group">
-      <label for="address" class="form-label">ADDRESS</label>
-      <input
-        type="address"
-        class="form-control"
-        id="address"
-        name="address"
-        formControlName="address"
-      >
-    </div>
-    <div class="reg-form mb-2 form-group">
-      <label for="phone" class="form-label">PHONE</label>
-      <input
-        type="phone"
-        class="form-control"
-        id="phone"
-        name="phone"
-        formControlName="phone"
-      >
-    </div>
-    <div class="d-flex justify-content-center mt-5">
-      <button class="btn btn-primary mt-4" [disabled]="!infoUser.valid">Update</button>
+    <div class="col-7" style="margin-top: 200px">
+      <p>
+        <i class="fa fa-user-o" aria-hidden="true"></i><span>{{User.name}}</span>
+      </p>
+      <p>
+        <i class="fa fa-address-card-o" aria-hidden="true"></i><span>{{User.address}}</span>
+      </p>
+      <p>
+        <i class="fa fa-volume-control-phone" aria-hidden="true"></i><span>{{User.phone}}</span>
+      </p>
+      <p>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i><span>{{User.email}}</span>
+      </p>
     </div>
   </div>
-</form>
+</div>
+<div class="modal fade" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EDIT PROFILE</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" name="myForm" [formGroup]="infoUser" (ngSubmit)="infoUser">
+          <div class="container">
+            <div class="reg-form mb-2 form-group">
+                      <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+                formControlName="name"
+                value="{{User.name}}"
+              >
+            </div>
+            <div class="reg-form mb-2 form-group">
+                      <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                name="address"
+                required
+                formControlName="address"
+                value="{{User.address}}">
+            </div>
+            <div class="reg-form mb-2 form-group">
+                      <label for="phone" class="form-label">Phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                required
+                formControlName="phone"
+                value="{{User.phone}}"
+              >
+            </div>
+            <div class="reg-form mb-2 form-group">
+                      <label for="email" class="form-label">Email</label>
+              <input
+                value="{{User.email}}"
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                formControlName="email"
+                placeholder="Email"
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn btn-dark" (click)="onSubmit()">SAVE PROFILE</button>
+      </div>
+    </div>
+  </div>
+</div>
