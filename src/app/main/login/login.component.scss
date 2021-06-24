@@ -1,0 +1,20 @@
+.outer{
+  background-image: url("../../../assets/image/img-home/cover-img-login-2.png");
+  background-size: cover;
+  height: 100vh;
+}
+form{
+  margin-left: 110px;
+  padding-top: 250px;
+}
+button{
+  background-color: black !important;
+  border: 1px solid white;
+  color: white;
+}
+button:hover{
+  opacity: 0.8;
+}
+input{
+  border: 1px solid white;
+}

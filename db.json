@@ -976,6 +976,14 @@
       "phone": "094986611",
       "email": "111@gmail.com",
       "password": "111"
+    },
+    {
+      "name": "Nguyen Thai Hoc",
+      "address": "123 Trần Bá Giao - Phường 5 - Quận Gò Vấp - TP Hồ Chí Minh",
+      "phone": "094221865",
+      "email": "thaihoc95x@gmail.com",
+      "password": "0977935245",
+      "id": 3
     }
   ],
   "cart": [

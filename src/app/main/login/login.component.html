@@ -1,22 +1,20 @@
-<div class="container bg-light mt-5 mb-5" style="width: 600px !important; height: 40vh !important">
-  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && Login()" novalidate>
-    <div class="text-center">
-      <h1>LOGIN</h1>
-    </div>
-    <div class="form-group row mt-5">
-      <label class="col-2">Tài Khoản:</label>
-      <div class="col-10" >
-        <input class=" form-control"  name="username" [(ngModel)]="model.username" #username="ngModel" required>
+<div class="outer container-fluid m-0 p-0">
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && Login()" novalidate class="w-25">
+      <div class="text-center">
+        <h3 class="text-light">LOGIN </h3>
       </div>
-    </div>
-    <div class="form-group row mt-5">
-      <label class="col-2">Mật khẩu:</label>
-      <div class="col-10">
-        <input class=" form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+      <div class="form-group row mt-4">
+        <div class="col-12" >
+          <input class=" form-control"  name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="Email">
+        </div>
       </div>
-    </div>
-    <div class="form-group mt-5 text-center">
-      <button class="btn btn-dark">Đăng Nhập</button>
-    </div>
-  </form>
+      <div class="form-group row mt-4">
+        <div class="col-12">
+          <input class=" form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="password" type = "password">
+        </div>
+      </div>
+      <div class="form-group mt-4 col-12">
+        <button class="btn w-100">LOGIN</button>
+      </div>
+    </form>
 </div>
