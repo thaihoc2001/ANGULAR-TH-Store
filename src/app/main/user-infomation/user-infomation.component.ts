@@ -14,17 +14,11 @@ export class UserInfomationComponent implements OnInit {
   checkOut: any = {};
   User: any = [];
   id: any;
+  model: any;
 
   constructor( private fb: FormBuilder,
                private userService: UserService,
-               private productsService: ProductsService) {
-    this.infoUser = this.fb.group({
-      name: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-    });
-  }
+               private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.getUserByID();
@@ -35,11 +29,11 @@ export class UserInfomationComponent implements OnInit {
       this.id = this.User.id;
     });
   }
-  onSubmit(): void {
-    console.log(this.infoUser.value);
-    // this.userService.putInfoUser(this.infoUser.value, this.id).subscribe(res => {
-    //   console.log(res);
-    //   console.log('oke');
-    // });
+
+  updateInfo(): void{
+    console.log(this.model.name);
+    console.log(this.model.address);
+    console.log(this.model.phone);
+    console.log(this.model.email);
   }
 }

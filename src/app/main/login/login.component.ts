@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../share/service/user.service';
 import { ProductsService } from '../../share/service/products.service';
 import {Router} from '@angular/router';
-import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.userService.Login().subscribe(user => {
       console.log(user);
       this.User = user || [];
+      console.log(this.model.username);
     });
   }
   Login(): void {

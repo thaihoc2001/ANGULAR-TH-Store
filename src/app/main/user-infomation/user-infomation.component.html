@@ -31,61 +31,31 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" name="myForm" [formGroup]="infoUser" (ngSubmit)="infoUser">
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && updateInfo()" novalidate>
           <div class="container">
             <div class="reg-form mb-2 form-group">
-                      <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                name="name"
-                required
-                formControlName="name"
-                value="{{User.name}}"
-              >
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required value="{{User.name}}">
             </div>
             <div class="reg-form mb-2 form-group">
-                      <label for="address" class="form-label">Address</label>
-              <input
-                type="text"
-                class="form-control"
-                id="address"
-                name="address"
-                required
-                formControlName="address"
-                value="{{User.address}}">
+              <label class="form-label">Address</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" required value="{{User.address}}">
             </div>
             <div class="reg-form mb-2 form-group">
-                      <label for="phone" class="form-label">Phone</label>
-              <input
-                type="tel"
-                class="form-control"
-                id="phone"
-                name="phone"
-                required
-                formControlName="phone"
-                value="{{User.phone}}"
-              >
+              <label  class="form-label">Phone</label>
+              <input type="tel" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required value="{{User.phone}}">
             </div>
             <div class="reg-form mb-2 form-group">
-                      <label for="email" class="form-label">Email</label>
-              <input
-                value="{{User.email}}"
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                formControlName="email"
-                placeholder="Email"
-              >
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Email" value="{{User.email}}">
             </div>
           </div>
+          <button type="button" class="btn btn-secondary">CLOSE</button>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn btn-dark" (click)="onSubmit()">SAVE PROFILE</button>
+        <button type="button" class="btn btn-dark" (click)="updateInfo()">SAVE PROFILE</button>
       </div>
     </div>
   </div>
