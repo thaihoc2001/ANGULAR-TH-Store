@@ -19,7 +19,6 @@ export class UserInfomationComponent implements OnInit {
   constructor( private fb: FormBuilder,
                private userService: UserService,
                private productsService: ProductsService) {}
-
   ngOnInit(): void {
     this.getUserByID();
   }
@@ -27,13 +26,20 @@ export class UserInfomationComponent implements OnInit {
     this.userService.getUserByID(localStorage.getItem('token')).subscribe(res => {
       this.User = res;
       this.id = this.User.id;
+      this.model = res;
     });
   }
-
   updateInfo(): void{
-    console.log(this.model.name);
-    console.log(this.model.address);
-    console.log(this.model.phone);
-    console.log(this.model.email);
+    this.infoUser = {
+      name: this.model.name,
+      address: this.model.address,
+      phone: this.model.phone,
+      email: this.model.email,
+      password: this.model.password
+    };
+    this.userService.putInfoUser(this.infoUser, this.id).subscribe(res => {
+      console.log(res);
+      console.log('success');
+    });
   }
 }
