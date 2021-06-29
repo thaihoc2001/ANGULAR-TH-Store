@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { HomeComponent } from './home/home.component';
-import { CartComponent } from './cart/cart.component';
 import { ColectionComponent } from './colection/colection.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -13,12 +12,12 @@ import { NewsComponent } from './news/news.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserInfomationComponent } from './user-infomation/user-infomation.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CartComponent,
     ColectionComponent,
     LoginComponent,
     RegisterComponent,
@@ -26,7 +25,8 @@ import { UserInfomationComponent } from './user-infomation/user-infomation.compo
     ProductWomenComponent,
     ProductDetailComponent,
     NewsComponent,
-    UserInfomationComponent
+    UserInfomationComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,

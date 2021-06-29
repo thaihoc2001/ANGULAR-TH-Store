@@ -1,5 +1,20 @@
-.list-img img{
-  margin-bottom: 20px;
+.title{
+  margin-top: 10vh;
+}
+table{
+  & tr{
+    & td{
+      width: 20% !important;
+      text-align: center;
+    }
+  }
+}
+.table-cartItem{
+  height: 60vh;
+  overflow-y: scroll;
+}
+i:hover{
+  opacity: 0.5;
 }
 ::-webkit-scrollbar {
   width: 5px !important;

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {MainComponent} from './main.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {CartComponent} from './cart/cart.component';
+import {CartItemComponent} from './cart/cartItem/cartItem.component';
 import {ColectionComponent} from './colection/colection.component';
 import {HomeComponent} from './home/home.component';
 import {ProductMenComponent} from './product-men/product-men.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'cart',
-        component: CartComponent
+        loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
       },
       {
         path: 'colection',

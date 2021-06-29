@@ -1,0 +1,14 @@
+ul{
+  list-style-type: none;
+  margin-top:20vh;
+  margin-left: 5vw;
+  & li{
+    margin-top: 20px;
+    & a{
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: black;
+    }
+  }
+}

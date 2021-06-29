@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         console.log('success');
         password.map((item: {id: number; }) => localStorage.setItem('token', JSON.stringify(item.id)));
         localStorage.setItem('message', 'true');
-        console.log(this.checkOut);
+        window.location.href = '/infomation';
         if (localStorage.getItem('message') === 'true'){
         }
       }else {

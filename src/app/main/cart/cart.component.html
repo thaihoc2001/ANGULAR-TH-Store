@@ -1,27 +1,27 @@
-<div class="container-fluid">
-  <h1>Your bag</h1>
-  <table class="table bg-light" *ngFor="let item of cartItem">
-      <tr>
-        <td style="width: 20% !important;">
-          <img src="{{item.img1}}" width="200">
-          <span>Size: {{item.size}}</span>
-        </td>
-        <td style="width: 20% !important;">
-          {{item.name}}
-        </td>
-        <td style="width: 20% !important;">
-          <button class="btn btn-dark" (click)="inc(item)">+</button>
-          {{item.quantity}}
-          <button class="btn btn-dark" (click)="dec(item)">-</button>
-        </td>
-        <td style="width: 20% !important;" id="price">
-          ${{item.quantity * item.price}}
-        </td>
-        <td style="width: 20% !important;">
-          <button class="btn btn-dark" (click)="removeItem(item)">Xóa</button>
-        </td>
-      </tr>
-  </table>
-  <h1>Total: ${{total}}</h1>
-  <button class="btn btn-dark">Buy now</button>
+<div class="container-fluid m-0 p-0">
+  <div class="w-100 d-flex">
+      <div class="col-3">
+        <ul>
+          <li>
+            <a routerLink="#">Ship to store</a>
+          </li>
+          <li>
+            <a routerLink="#">Shipping</a>
+          </li>
+          <li>
+            <a routerLink="#">Returns & exchanges</a>
+          </li>
+          <li>
+            <a routerLink="#">Ordering & payment</a>
+          </li>
+          <li>
+            <a routerLink="#">General</a>
+          </li>
+        </ul>
+      </div>
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+

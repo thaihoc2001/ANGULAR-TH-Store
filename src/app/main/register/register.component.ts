@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
     ).pipe(first()).subscribe({
       next: () => {
         console.log('Đăng ký thành công');
+        window.location.href = '\login';
       },
       error: erro => {
         console.log('Đăng ký thất bại');

@@ -22,5 +22,6 @@ export class NavbarComponent implements OnInit {
   Sigout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('message');
+    window.location.href = '\login';
   }
 }

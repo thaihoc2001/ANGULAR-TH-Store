@@ -59,6 +59,10 @@ export class ProductMenComponent implements OnInit {
     });
   }
   onChange(event: any): void {
+    const polo = document.getElementById('polo');
+    const tshirt = document.getElementById('tshirt');
+    const sweater = document.getElementById('sweater');
+    const jean = document.getElementById('jean');
     if (event.target.checked){
       let arr1 = [];
       let arr2 = [];
