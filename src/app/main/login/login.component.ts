@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit {
       console.log(this.model.username);
     });
   }
-  Login(): void {
+  Login(): any {
+    if (!this.regexUsername() || !this.regexPassword()){
+      return false;
+    }
     const username = this.User.filter((item: { email: string; }) => item.email === this.model.username);
     this.Username = username;
     localStorage.clear();
@@ -49,6 +52,35 @@ export class LoginComponent implements OnInit {
       }else {
         console.log('ERRO: fail');
       }
+    }
+  }
+  regexUsername(): boolean{
+    const element: HTMLElement = document.getElementById('errun') as HTMLElement;
+    const regex = /^[\w]+\@(gmail)\.(com)$/;
+    if (this.model.username === undefined){
+      element.innerHTML = 'Username cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.username)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Username is wrong format';
+      return false;
+    }
+  }
+
+  regexPassword(): boolean{
+    const element: HTMLElement = document.getElementById('errpw') as HTMLElement;
+    const regex = /^[\w\+!@#$%^&*()]{8,20}$/;
+    if (this.model.password === undefined){
+      element.innerHTML = 'Password cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.password)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Password must be 8-20 characters';
+      return false;
     }
   }
 }

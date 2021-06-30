@@ -1,16 +1,18 @@
 <div class="outer container-fluid m-0 p-0">
-    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && Login()" novalidate class="w-25">
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && Login()" class="w-25">
       <div class="text-center">
         <h3 class="text-light">LOGIN </h3>
       </div>
       <div class="form-group row mt-4">
         <div class="col-12" >
-          <input class=" form-control"  name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="Email">
+          <input class="form-control" id="username" (blur)="regexUsername()" name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="Email">
+          <p class="text-danger" id="errun">(*)</p>
         </div>
       </div>
       <div class="form-group row mt-4">
         <div class="col-12">
-          <input class=" form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="password" type = "password">
+          <input class=" form-control" id="password" (blur)="regexPassword()" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="password" type = "password">
+          <p class="text-danger" id="errpw">(*)</p>
         </div>
       </div>
       <div class="form-group mt-4 col-12">

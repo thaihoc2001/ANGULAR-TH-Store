@@ -962,11 +962,11 @@
   ],
   "Users": [
     {
-      "name": "Học Nguyễn Thái",
-      "address": "123 Trần Bá Giao - P5 -Quận Gò Vấp - TPHCM",
-      "phone": "0942221865",
+      "name": "Nguyen Thai Hoc",
+      "address": "123 Tran Ba Giao - Phuong 5 - Quan Go Vap - TP Ho Chi Minh",
+      "phone": "0123456789",
       "email": "123@gmail.com",
-      "password": "123",
+      "password": "12345678",
       "id": 1
     },
     {
@@ -984,14 +984,6 @@
       "email": "thaihoc95x@gmail.com",
       "password": "0977935245",
       "id": 3
-    },
-    {
-      "name": "TTCL",
-      "address": "TPHCM",
-      "phone": "123456789",
-      "email": "thaihoc95x@gmail.com",
-      "password": "123",
-      "id": 4
     }
   ],
   "cart": [
@@ -1030,6 +1022,29 @@
           "gender": "women",
           "quantity": 1,
           "size": "S"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Nguyen Thai Hoc",
+      "cartItem": [
+        {
+          "id": 3,
+          "name": "The Earth Polo",
+          "img1": "assets/image/img-product/polo/pr3-1.jpg",
+          "img2": "assets/image/img-product/polo/pr3-2.jpg",
+          "img3": "assets/image/img-product/polo/pr3-3.jpg",
+          "img4": "assets/image/img-product/polo/pr3-4.jpg",
+          "img5": "assets/image/img-product/polo/pr3-5.jpg",
+          "price": 90,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 1,
+          "size": "L"
         }
       ]
     }

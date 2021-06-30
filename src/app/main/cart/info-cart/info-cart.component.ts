@@ -68,8 +68,8 @@ export class InfoCartComponent implements OnInit {
   }
   paymentInfo(): any{
     if (!this.checkLogin()){
-      if (this.name1 === undefined || this.address1 === undefined || this.phone1 === undefined || this.email1 === undefined){
-        alert('Please,Fill in your personal information');
+      if (!this.regexName1() || !this.regexAddress1() || !this.regexPhone1() || !this.regexEmail1()){
+        alert('Please, come back later');
         return false;
       }
       window.location.href = '/cart/payCart';
@@ -81,6 +81,10 @@ export class InfoCartComponent implements OnInit {
       };
       localStorage.setItem('UserInfo', JSON.stringify(this.userInfo));
     }else{
+      if (!this.regexName() || !this.regexAddress() || !this.regexPhone() || !this.regexEmail()){
+        alert('Please, come back later');
+        return false;
+      }
       window.location.href = '/cart/payCart';
       this.userInfo = {
         name: this.model.name,
@@ -93,6 +97,124 @@ export class InfoCartComponent implements OnInit {
         console.log(res);
         console.log('success');
       });
+    }
+  }
+  regexName(): boolean{
+    const element: HTMLElement = document.getElementById('errname') as HTMLElement;
+    const regex = /^[A-Za-z\s]+$/;
+    if (this.model.name === undefined){
+      element.innerHTML = 'Name cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.name)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Name is wrong format';
+      return false;
+    }
+  }
+
+  regexAddress(): boolean{
+    const element: HTMLElement = document.getElementById('erraddress') as HTMLElement;
+    const regex = /^[A-Za-z\d\s\-]+$/;
+    if (this.model.address === undefined){
+      element.innerHTML = 'Address cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.address)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Address is wrong format';
+      return false;
+    }
+  }
+
+  regexPhone(): boolean{
+    const element: HTMLElement = document.getElementById('errphone') as HTMLElement;
+    const regex = /^(0)\d{9}$/;
+    if (this.model.phone === undefined){
+      element.innerHTML = 'Phone cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.phone)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Phone is wrong format';
+      return false;
+    }
+  }
+
+  regexEmail(): boolean{
+    const element: HTMLElement = document.getElementById('erremail') as HTMLElement;
+    const regex = /^[\w]+\@(gmail)\.(com)$/;
+    if (this.model.email === undefined){
+      element.innerHTML = 'Phone cannot be left blank';
+      return false;
+    }else if (regex.test(this.model.email)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Phone is wrong format';
+      return false;
+    }
+  }
+  regexName1(): boolean{
+    const element: HTMLElement = document.getElementById('errname1') as HTMLElement;
+    const regex = /^[A-Za-z\s]+$/;
+    if (this.name1 === undefined){
+      element.innerHTML = 'Name cannot be left blank';
+      return false;
+    }else if (regex.test(this.name1)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Name is wrong format';
+      return false;
+    }
+  }
+
+  regexAddress1(): boolean{
+    const element: HTMLElement = document.getElementById('erraddress1') as HTMLElement;
+    const regex = /^[A-Za-z\d\s\-]+$/;
+    if (this.address1 === undefined){
+      element.innerHTML = 'Address cannot be left blank';
+      return false;
+    }else if (regex.test(this.address1)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Address is wrong format';
+      return false;
+    }
+  }
+
+  regexPhone1(): boolean{
+    const element: HTMLElement = document.getElementById('errphone1') as HTMLElement;
+    const regex = /^(0)\d{9}$/;
+    if (this.phone1 === undefined){
+      element.innerHTML = 'Phone cannot be left blank';
+      return false;
+    }else if (regex.test(this.phone1)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Phone is wrong format';
+      return false;
+    }
+  }
+
+  regexEmail1(): boolean{
+    const element: HTMLElement = document.getElementById('erremail1') as HTMLElement;
+    const regex = /^[\w]+\@(gmail)\.(com)$/;
+    if (this.email1 === undefined){
+      element.innerHTML = 'Phone cannot be left blank';
+      return false;
+    }else if (regex.test(this.email1)){
+      element.innerHTML = '(*)';
+      return true;
+    }else{
+      element.innerHTML = 'Phone is wrong format';
+      return false;
     }
   }
 }
