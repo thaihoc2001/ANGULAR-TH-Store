@@ -19,6 +19,7 @@ export class InfoCartComponent implements OnInit {
   phone1: any;
   email1: any;
   userInfo: any;
+  id: any;
 
   constructor(private userService: UserService,
               private cartService: CartService) { }
@@ -32,6 +33,7 @@ export class InfoCartComponent implements OnInit {
       this.userService.getUserByID(localStorage.getItem('token')).subscribe(res => {
         this.User = res;
         this.model = res;
+        this.id = res.id;
       });
     }
   }
@@ -64,9 +66,13 @@ export class InfoCartComponent implements OnInit {
       }, 0);
     }
   }
-  paymentInfo(): void{
-    window.location.href = '/cart/payCart';
+  paymentInfo(): any{
     if (!this.checkLogin()){
+      if (this.name1 === undefined || this.address1 === undefined || this.phone1 === undefined || this.email1 === undefined){
+        alert('Please,Fill in your personal information');
+        return false;
+      }
+      window.location.href = '/cart/payCart';
       this.userInfo = {
         name: this.name1,
         address: this.address1,
@@ -74,6 +80,19 @@ export class InfoCartComponent implements OnInit {
         email: this.email1
       };
       localStorage.setItem('UserInfo', JSON.stringify(this.userInfo));
+    }else{
+      window.location.href = '/cart/payCart';
+      this.userInfo = {
+        name: this.model.name,
+        address: this.model.address,
+        phone: this.model.phone,
+        email: this.model.email,
+        password: this.model.password
+      };
+      this.userService.putInfoUser(this.userInfo, this.id).subscribe(res => {
+        console.log(res);
+        console.log('success');
+      });
     }
   }
 }
