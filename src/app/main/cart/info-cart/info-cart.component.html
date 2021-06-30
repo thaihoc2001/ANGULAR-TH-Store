@@ -4,4 +4,74 @@
     <h3 class="col-4">02.Shipping address</h3>
     <h3 class="col-4" style="opacity: 0.5">03. Payment</h3>
   </div>
+  <div class="w-100 d-flex mt-5 mb-5">
+    <div class="col-8">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid" novalidate *ngIf="checkLogin()">
+        <div class="container">
+          <div class="reg-form mb-2 form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required placeholder="Ex: Nguyen Thai Hoc">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" id="address" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" required placeholder="Ex: 123 Tran Ba Giao - P5 - Go Vap - TPHCM">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" id="phone" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required placeholder="Ex: 0942221865">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Ex: thaihoc95x@gmail.com">
+          </div>
+        </div>
+      </form>
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid" novalidate *ngIf="!checkLogin()">
+        <div class="container">
+          <div class="reg-form mb-2 form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name1" [(ngModel)]="name1" required placeholder="Ex: Nguyen Thai Hoc">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address1" [(ngModel)]="address1" required placeholder="Ex: 123 Tran Ba Giao - P5 - Go Vap - TPHCM">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" name="phone1" [(ngModel)]="phone1" required placeholder="Ex: 0942221865">
+          </div>
+          <div class="reg-form mb-2 form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email1" [(ngModel)]="email1" placeholder="Ex: thaihoc95x@gmail.com">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="table-item col-4">
+        <table class="table table-bordered">
+          <tr *ngFor="let item of cartItem">
+            <td>
+              <img src="{{item.img1}}" width="100">
+            </td>
+            <td>
+              <h6 class="m-0 p-0">{{item.name}}</h6>
+              <p class="m-0 mt-2 p-0">Size:{{item.size}}</p>
+              <h6 class="m-0 mt-2 p-0">${{item.price}}</h6>
+            </td>
+          </tr>
+        </table>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-8">
+
+    </div>
+    <div class="col-4 mt-5 mb-5">
+      <div class="d-flex col-12">
+        <h4 class="w-75">Subtotal</h4>
+        <h4 class="w-25 text-right">${{total}}</h4>
+      </div>
+      <button class="btn btn-dark col-12 mt-3" (click)="paymentInfo()" style="border-radius: 0; height: 50px">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
 </div>
