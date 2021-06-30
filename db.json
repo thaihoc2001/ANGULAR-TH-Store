@@ -996,112 +996,6 @@
   ],
   "cart": [
     {
-      "id": 1,
-      "name": "Học Nguyễn Thái",
-      "cartItem": [
-        {
-          "id": 15,
-          "name": "Linen Halter Dress",
-          "img1": "assets/image/img-product/dresses/pr5-1.jpg",
-          "img2": "assets/image/img-product/dresses/pr5-2.jpg",
-          "img3": "assets/image/img-product/dresses/pr5-3.jpg",
-          "img4": "assets/image/img-product/dresses/pr5-4.jpg",
-          "img5": "assets/image/img-product/dresses/pr5-5.jpg",
-          "price": 298,
-          "slug": "dresses",
-          "status": true,
-          "rating": 5,
-          "gender": "women",
-          "quantity": 3,
-          "size": "S"
-        },
-        {
-          "id": 2,
-          "name": "The Earth Polo",
-          "img1": "assets/image/img-product/polo/pr2-1.jpg",
-          "img2": "assets/image/img-product/polo/pr2-2.jpg",
-          "img3": "assets/image/img-product/polo/pr2-3.jpg",
-          "img4": "assets/image/img-product/polo/pr2-4.jpg",
-          "img5": "assets/image/img-product/polo/pr2-5.jpg",
-          "price": 85,
-          "tradeMark": "polo",
-          "slug": "polo",
-          "status": true,
-          "rating": 5,
-          "gender": "men",
-          "quantity": 1,
-          "size": "L"
-        },
-        {
-          "id": 8,
-          "name": "Classic Fit Performance Jersey T-Shirt",
-          "img1": "assets/image/img-product/t-shirt/pr3-1.jpg",
-          "img2": "assets/image/img-product/t-shirt/pr3-2.jpg",
-          "img3": "assets/image/img-product/t-shirt/pr3-3.webp",
-          "img4": "assets/image/img-product/t-shirt/pr3-4.jpg",
-          "img5": "assets/image/img-product/t-shirt/pr3-5.jpg",
-          "price": 90,
-          "tradeMark": "tshirt",
-          "slug": "tshirt",
-          "status": true,
-          "rating": 5,
-          "gender": "men",
-          "quantity": 1,
-          "size": "M"
-        },
-        {
-          "id": 13,
-          "name": "Southwestern Sleeveless Henley Dress",
-          "img1": "assets/image/img-product/dresses/pr3-1.jpg",
-          "img2": "assets/image/img-product/dresses/pr3-2.jpg",
-          "img3": "assets/image/img-product/dresses/pr3-3.webp",
-          "img4": "assets/image/img-product/dresses/pr3-4.webp",
-          "img5": "assets/image/img-product/dresses/pr3-5.webp",
-          "price": 228,
-          "slug": "dresses",
-          "status": true,
-          "rating": 5,
-          "gender": "women",
-          "quantity": 1,
-          "size": "S"
-        },
-        {
-          "id": 5,
-          "name": "Soft Cotton Polo Shirt - All Fits",
-          "img1": "assets/image/img-product/polo/pr5-1.jpg",
-          "img2": "assets/image/img-product/polo/pr5-2.jpg",
-          "img3": "assets/image/img-product/polo/pr5-3.jpg",
-          "img4": "assets/image/img-product/polo/pr5-4.jpg",
-          "img5": "assets/image/img-product/polo/pr5-5.jpg",
-          "price": 98,
-          "tradeMark": "polo",
-          "slug": "polo",
-          "status": true,
-          "rating": 5,
-          "gender": "men",
-          "quantity": 1,
-          "size": "M"
-        },
-        {
-          "id": 1,
-          "name": "Cotton Polo-Collar Sweater",
-          "img1": "assets/image/img-product/polo/pr1-1.jpg",
-          "img2": "assets/image/img-product/polo/pr1-2.jpg",
-          "img3": "assets/image/img-product/polo/pr1-3.webp",
-          "img4": "assets/image/img-product/polo/pr1-4.jpg",
-          "img5": "assets/image/img-product/polo/p1-5.webp",
-          "price": 80,
-          "tradeMark": "polo",
-          "slug": "polo",
-          "status": true,
-          "rating": 5,
-          "gender": "men",
-          "quantity": 1,
-          "size": "M"
-        }
-      ]
-    },
-    {
       "id": 2,
       "name": "Nguyễn Trung Hiếu",
       "cartItem": [
@@ -1138,6 +1032,36 @@
           "size": "S"
         }
       ]
+    }
+  ],
+  "Order": [
+    {
+      "name": "Học Nguyễn Thái",
+      "address": "123 Trần Bá Giao - P5 -Quận Gò Vấp - TPHCM",
+      "phone": "0942221865",
+      "email": "123@gmail.com",
+      "products": [
+        {
+          "id": 1,
+          "name": "Cotton Polo-Collar Sweater",
+          "img1": "assets/image/img-product/polo/pr1-1.jpg",
+          "img2": "assets/image/img-product/polo/pr1-2.jpg",
+          "img3": "assets/image/img-product/polo/pr1-3.webp",
+          "img4": "assets/image/img-product/polo/pr1-4.jpg",
+          "img5": "assets/image/img-product/polo/p1-5.webp",
+          "price": 80,
+          "tradeMark": "polo",
+          "slug": "polo",
+          "status": true,
+          "rating": 5,
+          "gender": "men",
+          "quantity": 6,
+          "size": "M"
+        }
+      ],
+      "total": 480,
+      "date": "2021-06-30T13:57:15.227Z",
+      "id": 1
     }
   ]
 }
