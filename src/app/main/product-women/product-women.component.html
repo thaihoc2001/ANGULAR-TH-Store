@@ -4,7 +4,7 @@
   </div>
   <div class="section w-100 d-flex">
     <div class="article-left w-25 ">
-      <div class="option-products">
+      <div class="option-products mt-5">
         <div>
           <h3 class="mt-5">SHOP BY TYPE</h3>
           <input type = "checkbox" class="mt-3"> Polo <br>
@@ -46,14 +46,16 @@
         <i class="fa fa-sort-amount-desc" aria-hidden="true"(click)="sortByName('name')" *ngIf="isDesc" style="margin-right: 50px !important;">SORT BY NAME</i>
         <i class="fa fa-sort-amount-asc" aria-hidden="true"(click)="sortByName('name')" *ngIf="!isDesc" style="margin-right: 50px !important;">SORT BY NAME</i>
       </div>
-      <div class="product w-25 mt-5" *ngFor="let item of product | paginate: {itemsPerPage: 8, currentPage: page}" style="float: left;">
+      <div class="product w-25 mt-5" *ngFor="let item of product | paginate: {itemsPerPage: 8, currentPage: page}" style="float: left; height: 550px !important;">
         <a routerLink="/productmen/{{item.id}}" class="text-decoration-none text-dark" >
           <img src="{{item.img1}}" class="w-100" style="width: 90% !important">
           <h3>{{item.name}}</h3>
           <p>${{item.price}}</p>
         </a>
       </div>
-      <pagination-controls (pageChange)="page = $event" ></pagination-controls>
+      <div class="text-center">
+        <pagination-controls (pageChange)="page = $event" ></pagination-controls>
+      </div>
     </div>
   </div>
 </div>
