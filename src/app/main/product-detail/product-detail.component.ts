@@ -103,7 +103,7 @@ export class ProductDetailComponent implements OnInit {
         }else{
           this.prodcutItem = JSON.parse(JSON.stringify(this.cart.cartItem)) || [];
           for (let i = 0; i < this.prodcutItem.length; i++){
-            if (this.prodcutItem[i].id === products.id){
+            if (this.prodcutItem[i].id === products.id && this.prodcutItem[i].size === products.size){
               console.log('trung ma');
               index = i;
               console.log(index);
@@ -150,7 +150,7 @@ export class ProductDetailComponent implements OnInit {
           let index = -1;
           list = JSON.parse(localStorage.getItem('cartItem') as string) || [];
           for (let i = 0; i < list.length; i++) {
-            if (list[i].id === products.id){
+            if (list[i].id === products.id && list[i].size === products.size){
               console.log('cong thanh cong');
               index = i;
               console.log(index);

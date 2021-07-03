@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     });
   }
   Login(): any {
+    const element: HTMLElement = document.getElementById('errpw') as HTMLElement;
     if (!this.regexUsername() || !this.regexPassword()){
       return false;
     }
@@ -50,7 +51,8 @@ export class LoginComponent implements OnInit {
         if (localStorage.getItem('message') === 'true'){
         }
       }else {
-        console.log('ERRO: fail');
+        element.innerHTML = 'Incorrect password please try again';
+        return false;
       }
     }
   }
@@ -71,7 +73,7 @@ export class LoginComponent implements OnInit {
 
   regexPassword(): boolean{
     const element: HTMLElement = document.getElementById('errpw') as HTMLElement;
-    const regex = /^[\w\+!@#$%^&*()]{8,20}$/;
+    const regex = /^[\w\+!@#$%^&*()]+$/;
     if (this.model.password === undefined){
       element.innerHTML = 'Password cannot be left blank';
       return false;

@@ -10,7 +10,6 @@ import _ = require('lodash');
 })
 export class ProductMenComponent implements OnInit {
   constructor( private commonService: ProductsService ) { }
-  filter = { polo: false, tshirt: true, sweater: true, jean: true };
   public product: Array<any> = [];
   productmen: any;
   page = 1;
@@ -59,10 +58,6 @@ export class ProductMenComponent implements OnInit {
     });
   }
   onChange(event: any): void {
-    const polo = document.getElementById('polo');
-    const tshirt = document.getElementById('tshirt');
-    const sweater = document.getElementById('sweater');
-    const jean = document.getElementById('jean');
     if (event.target.checked){
       let arr1 = [];
       let arr2 = [];

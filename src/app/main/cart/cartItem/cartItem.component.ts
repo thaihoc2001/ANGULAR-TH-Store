@@ -58,7 +58,7 @@ export class CartItemComponent implements OnInit {
       let index = -1;
       list = JSON.parse(JSON.stringify(this.cartItem)) || [];
       for (let i = 0; i < list.length; i++){
-        if (list[i].id === products.id){
+        if (list[i].id === products.id  && list[i].size === products.size){
           index = i;
           break;
         }
@@ -84,7 +84,7 @@ export class CartItemComponent implements OnInit {
         let index = -1;
         this.cartItem = JSON.parse(localStorage.getItem('cartItem') as string) || [];
         for (let i = 0; i < this.cartItem.length; i++) {
-          if (this.cartItem[i].id === products.id){
+          if (this.cartItem[i].id === products.id  && this.cartItem[i].size === products.size){
             index = i;
             break;
           }
@@ -106,7 +106,7 @@ export class CartItemComponent implements OnInit {
       let index = -1;
       list = JSON.parse(JSON.stringify(this.cartItem)) || [];
       for (let i = 0; i < list.length; i++){
-        if (list[i].id === products.id){
+        if (list[i].id === products.id  && list[i].size === products.size){
           index = i;
           break;
         }
@@ -136,7 +136,7 @@ export class CartItemComponent implements OnInit {
         let index = -1;
         this.cartItem = JSON.parse(localStorage.getItem('cartItem') as string) || [];
         for (let i = 0; i < this.cartItem.length; i++) {
-          if (this.cartItem[i].id === products.id){
+          if (this.cartItem[i].id === products.id  && this.cartItem[i].size === products.size){
             index = i;
             break;
           }
